@@ -6,14 +6,21 @@
 //
 
 import UIKit
+import AppCenterCrashes
+import AppCenterAnalytics
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func crashBtnTapped(_ sender: Any) {
+        Crashes.generateTestCrash()
+    }
+    
+    @IBAction func btnEventTapped(_ sender: Any) {
+        Analytics.trackEvent("Custome_Event", withProperties: ["Name": "Test"])
+    }
 }
 
